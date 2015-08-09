@@ -2,6 +2,8 @@ function rad2deg(rad) = 180/PI * rad;
 
 function deg2rad(deg) = PI/180 * deg;
 
+function sum(v, from, to) = (to==from ? 0 : v[to-1] + sum(v,from, to-1));
+
 // Converts polar coordinates to cartesian coordinates
 function pol2cart(s) = [
 	s[2]*sin(s[1])*cos(s[0]),
@@ -58,3 +60,7 @@ module funnyShape() {
 shpericalPlace([30, -70, 50]) funnyShape();
 shpericalPlace([30, 70, 50]) funnyShape();
 shpericalPlace([-30, 180, 50]) funnyShape();
+
+// Demo to show how to compute sums
+list = [1, 1, 2, 3, 4, 5];
+echo(sum(list, 0, len(list)));
